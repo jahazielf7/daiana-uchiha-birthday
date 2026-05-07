@@ -20,12 +20,17 @@
     body{
       height:100vh;
       overflow:hidden;
+
       display:flex;
       justify-content:center;
       align-items:center;
+
       background:black;
       color:white;
+
       position:relative;
+
+      padding:20px;
     }
 
     /* Fondo */
@@ -35,7 +40,7 @@
       position:absolute;
       inset:0;
 
-      background:url('sasuke.jpg') center center/cover no-repeat;
+      background:url('sasuke.jpg') center top/cover no-repeat;
 
       filter:brightness(0.33);
 
@@ -272,10 +277,6 @@
 
       position:absolute;
 
-      top:12%;
-
-      right:8%;
-
       z-index:20;
 
       font-size:1.8rem;
@@ -347,12 +348,17 @@
     @media(max-width:700px){
 
       h1{
-        font-size:2.8rem;
+        font-size:2.2rem;
         letter-spacing:6px;
       }
 
       .card{
-        padding:45px 28px;
+
+        width:88%;
+
+        padding:38px 24px;
+
+        border-radius:24px;
       }
 
       .message{
@@ -361,6 +367,15 @@
 
       .music-text{
         font-size:0.70rem;
+      }
+
+      #musicBtn{
+
+        bottom:28px;
+
+        padding:12px 22px;
+
+        font-size:0.72rem;
       }
     }
 

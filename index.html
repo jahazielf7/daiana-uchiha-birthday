@@ -24,7 +24,7 @@ color:white;
 position:relative;
 }
 
-/* fondo */
+/* FONDO */
 
 .background{
 position:fixed;
@@ -43,7 +43,7 @@ z-index:-5;
 100%{transform:scale(1.04);}
 }
 
-/* glow */
+/* GLOW */
 
 .overlay{
 position:fixed;
@@ -54,7 +54,7 @@ radial-gradient(circle at bottom right, rgba(140,0,255,.10), transparent 35%);
 z-index:-4;
 }
 
-/* CUERVOS MAS VISIBLES */
+/* CUERVOS */
 
 .crow{
 position:fixed;
@@ -64,11 +64,9 @@ background:url('crow.png') center/contain no-repeat;
 opacity:.62;
 z-index:8;
 pointer-events:none;
-
 filter:
 drop-shadow(0 0 10px rgba(0,0,0,.65))
 drop-shadow(0 0 18px rgba(0,0,0,.35));
-
 animation:fly linear infinite;
 }
 
@@ -112,7 +110,7 @@ opacity:0;
 }
 }
 
-/* layout */
+/* LAYOUT */
 
 .wrapper{
 width:100%;
@@ -129,7 +127,7 @@ flex-direction:column;
 gap:28px;
 }
 
-/* intro */
+/* INTRO */
 
 .gaara-intro{
 position:absolute;
@@ -168,7 +166,7 @@ letter-spacing:4px;
 opacity:.75;
 }
 
-/* botones */
+/* BOTONES */
 
 .startBtn,
 #musicBtn{
@@ -191,7 +189,7 @@ transform:scale(1.05);
 background:rgba(255,255,255,.13);
 }
 
-/* carta */
+/* CARD */
 
 .card{
 width:100%;
@@ -273,7 +271,7 @@ font-size:.8rem;
 opacity:.55;
 }
 
-/* music */
+/* MUSIC */
 
 .music-wrapper{
 display:flex;
@@ -296,7 +294,7 @@ letter-spacing:4px;
 opacity:.7;
 }
 
-/* responsive */
+/* RESPONSIVE */
 
 @media(max-width:900px){
 
@@ -311,7 +309,8 @@ min-width:260px;
 }
 
 .background{
-background-position:-265% center;
+background-position:-460% center;
+background-size:145%;
 }
 
 .card{

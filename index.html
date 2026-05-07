@@ -19,21 +19,16 @@
 }
 
 body{
-
   min-height:100vh;
-
   overflow:hidden;
-
   background:black;
   color:white;
-
   position:relative;
 }
 
 /* FONDO */
 
 .background{
-
   position:fixed;
   inset:0;
 
@@ -44,24 +39,14 @@ body{
   url('sasuke.png');
 
   background-size:cover;
-
-  /*
-    AHORA SÍ:
-    Sasuke queda COMPLETAMENTE
-    a la derecha del cuadro
-  */
-
   background-position:220% center;
-
   filter:brightness(1.05);
-
   z-index:-3;
 }
 
 /* glow */
 
 .overlay{
-
   position:fixed;
   inset:0;
 
@@ -80,36 +65,25 @@ body{
 /* layout */
 
 .wrapper{
-
   width:100%;
   height:100vh;
-
   display:flex;
   align-items:center;
-
   padding-left:5vw;
 }
 
-/* lado izquierdo */
-
 .left-side{
-
   width:520px;
-
   display:flex;
   flex-direction:column;
-
   gap:28px;
 }
 
 /* CARD */
 
 .card{
-
   width:100%;
-
   padding:58px 42px;
-
   border-radius:32px;
 
   background:rgba(255,255,255,0.06);
@@ -124,19 +98,14 @@ body{
   0 0 20px rgba(132,0,255,0.08);
 
   overflow:hidden;
-
   position:relative;
-
   text-align:center;
 }
 
 .card::before{
-
   content:'';
-
   position:absolute;
   inset:0;
-
   border-radius:inherit;
 
   background:
@@ -144,50 +113,34 @@ body{
   135deg,
   rgba(255,255,255,0.10),
   transparent 60%);
-
-  pointer-events:none;
 }
 
 /* textos */
 
 h1{
-
   font-size:5rem;
-
   letter-spacing:12px;
-
   color:#e8c5ff;
-
-  text-shadow:
-  0 0 15px rgba(180,120,255,0.7);
-
+  text-shadow:0 0 15px rgba(180,120,255,0.7);
   margin-bottom:12px;
 }
 
 .subtitle{
-
   letter-spacing:7px;
-
   font-size:0.9rem;
-
   opacity:0.88;
-
   margin-bottom:30px;
 }
 
 .divider{
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   gap:18px;
-
   margin-bottom:18px;
 }
 
 .line{
-
   width:90px;
   height:1px;
 
@@ -200,101 +153,113 @@ h1{
 }
 
 .symbol{
-
   color:#d78dff;
-
   font-size:1.4rem;
 }
 
 .message{
-
   font-size:1.08rem;
-
   line-height:2;
-
   color:rgba(255,255,255,0.96);
-
   margin-top:35px;
 }
 
 .quote{
-
   margin-top:60px;
-
   font-size:1rem;
-
   font-style:italic;
-
   opacity:0.88;
 }
 
 .quote-author{
-
   margin-top:16px;
-
   letter-spacing:4px;
-
   font-size:0.8rem;
-
   opacity:0.55;
 }
 
 /* MUSIC */
 
 .music-wrapper{
-
   display:flex;
   flex-direction:column;
   align-items:center;
-
   gap:16px;
 }
 
 .music-text{
-
   font-size:0.74rem;
-
   letter-spacing:4px;
-
   opacity:0.7;
 }
 
 #musicBtn{
-
   border:none;
-
   padding:15px 34px;
-
   border-radius:999px;
-
   background:rgba(255,255,255,0.06);
-
   color:#f0dcff;
-
   font-size:0.82rem;
-
   letter-spacing:4px;
-
   cursor:pointer;
-
   border:1px solid rgba(255,255,255,0.12);
-
   backdrop-filter:blur(6px);
-
   transition:0.35s ease;
 }
 
 #musicBtn:hover{
-
   transform:scale(1.05);
-
   background:rgba(255,255,255,0.10);
-
-  box-shadow:
-  0 0 25px rgba(119,0,255,0.25);
+  box-shadow:0 0 25px rgba(119,0,255,0.25);
 }
 
-/* RESPONSIVE */
+/* GAARA POPUP */
+
+.gaara-popup{
+  position:fixed;
+  right:35px;
+  bottom:35px;
+
+  width:210px;
+
+  background:rgba(20,20,20,0.55);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:24px;
+
+  padding:14px;
+
+  backdrop-filter:blur(10px);
+
+  opacity:0;
+  transform:translateY(20px) scale(.9);
+
+  pointer-events:none;
+
+  transition:.6s ease;
+
+  z-index:99;
+}
+
+.gaara-popup.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+.gaara-popup img{
+  width:100%;
+  border-radius:18px;
+  display:block;
+}
+
+.gaara-text{
+  text-align:center;
+  margin-top:10px;
+  font-size:.72rem;
+  letter-spacing:2px;
+  opacity:.75;
+}
+
+/* responsive */
 
 @media(max-width:900px){
 
@@ -303,61 +268,38 @@ h1{
   }
 
   .wrapper{
-
     justify-content:flex-start;
     align-items:center;
-
-    padding:
-    30px
-    14px;
+    padding:30px 14px;
   }
 
   .left-side{
-
     width:58%;
     min-width:260px;
   }
 
   .background{
-
-    /*
-      EN CELULAR:
-      Sasuke queda al lado derecho
-      totalmente libre del cuadro
-    */
-
     background-position:-265% center;
-
     background-size:cover;
-
-    filter:brightness(1.08);
   }
 
   .card{
-
     padding:42px 18px;
-
     border-radius:26px;
   }
 
   h1{
-
     font-size:3.2rem;
-
     letter-spacing:7px;
   }
 
   .subtitle{
-
     font-size:0.76rem;
-
     letter-spacing:4px;
   }
 
   .message{
-
     font-size:0.95rem;
-
     line-height:1.8;
   }
 
@@ -366,150 +308,165 @@ h1{
   }
 
   .quote{
-
     font-size:0.95rem;
-
     margin-top:45px;
   }
 
   .quote-author{
-
     font-size:0.7rem;
-
     letter-spacing:2px;
   }
 
   .music-text{
-
     font-size:0.65rem;
   }
 
   #musicBtn{
-
     width:100%;
-
     font-size:0.72rem;
-
     padding:13px 18px;
+  }
+
+  .gaara-popup{
+    right:10px;
+    bottom:10px;
+    width:145px;
   }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="background"></div>
-
 <div class="overlay"></div>
 
 <div class="wrapper">
 
-  <div class="left-side">
+<div class="left-side">
 
-    <div class="card">
+<div class="card">
 
-      <h1>DAIANA</h1>
+<h1>DAIANA</h1>
 
-      <div class="subtitle">
-        happy birthday.
-      </div>
+<div class="subtitle">
+happy birthday.
+</div>
 
-      <div class="divider">
+<div class="divider">
+<div class="line"></div>
+<div class="symbol">✦</div>
+<div class="line"></div>
+</div>
 
-        <div class="line"></div>
+<div class="message">
+algún día este momento también será un recuerdo.
+</div>
 
-        <div class="symbol">✦</div>
+<div class="quote">
+“Another year survived.”
+</div>
 
-        <div class="line"></div>
+<div class="quote-author">
+— Uchiha certified 🗿
+</div>
 
-      </div>
+</div>
 
-      <div class="message">
-        algún día este momento también será un recuerdo.
-      </div>
+<div class="music-wrapper">
 
-      <div class="quote">
-        “Another year survived.”
-      </div>
+<div class="music-text">
+just listen for a while.
+</div>
 
-      <div class="quote-author">
-        — Uchiha certified 🗿
-      </div>
+<button id="musicBtn">
+♬ play music
+</button>
 
-    </div>
+</div>
 
-    <div class="music-wrapper">
+</div>
+</div>
 
-      <div class="music-text">
-        just listen for a while.
-      </div>
+<!-- POPUP GAARA -->
 
-      <button id="musicBtn">
-        ♬ play music
-      </button>
+<div class="gaara-popup" id="gaaraPopup">
 
-    </div>
+<img src="gaara.png">
 
-  </div>
+<div class="gaara-text">
+kazekage mode
+</div>
 
 </div>
 
 <audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
-  <source src="music.mp3" type="audio/mpeg">
-
+<audio id="gaaraVoice">
+<source src="isai.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-const music =
-document.getElementById('bgMusic');
+const music = document.getElementById('bgMusic');
+const btn = document.getElementById('musicBtn');
 
-const btn =
-document.getElementById('musicBtn');
+const gaaraPopup = document.getElementById('gaaraPopup');
+const gaaraVoice = document.getElementById('gaaraVoice');
 
 let playing = false;
+let gaaraPlayed = false;
 
 btn.addEventListener('click',()=>{
 
-  if(!playing){
+if(!playing){
 
-    music.volume = 0;
+music.volume = 0;
+music.play();
 
-    music.play();
+let volume = 0;
 
-    let volume = 0;
+const fade = setInterval(()=>{
 
-    const fade = setInterval(()=>{
+if(volume < 0.22){
+volume += 0.01;
+music.volume = volume;
+}else{
+clearInterval(fade);
+}
 
-      if(volume < 0.22){
+},200);
 
-        volume += 0.01;
+btn.innerText = 'pause music';
+playing = true;
 
-        music.volume = volume;
+/* mostrar gaara solo primera vez */
 
-      }else{
+if(!gaaraPlayed){
 
-        clearInterval(fade);
-      }
+gaaraPopup.classList.add('show');
 
-    },200);
+gaaraVoice.play();
 
-    btn.innerText = 'pause music';
+setTimeout(()=>{
+gaaraPopup.classList.remove('show');
+},5000);
 
-    playing = true;
+gaaraPlayed = true;
 
-  }else{
+}
 
-    music.pause();
+}else{
 
-    btn.innerText = '♬ play music';
+music.pause();
+btn.innerText = '♬ play music';
+playing = false;
 
-    playing = false;
-  }
+}
 
 });
 

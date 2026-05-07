@@ -2,10 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>happy birthday, daiana.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daiana</title>
 
-  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -20,7 +19,6 @@
     body{
 
       min-height:100svh;
-
       width:100%;
 
       overflow:hidden;
@@ -33,8 +31,6 @@
       color:white;
 
       position:relative;
-
-      padding:20px;
     }
 
     /* Fondo */
@@ -44,60 +40,47 @@
       position:absolute;
       inset:0;
 
-      background:url('sasuke.jpg') center top/cover no-repeat;
+      background:
+      linear-gradient(
+      rgba(0,0,0,0.28),
+      rgba(0,0,0,0.45)),
+      url('sasuke.png') center center/cover no-repeat;
 
-      filter:brightness(0.33);
+      transform:scale(1.03);
 
-      transform:scale(1.15);
+      filter:blur(0px) brightness(0.82);
 
-      animation:zoom 20s infinite alternate ease-in-out;
+      animation:zoom 18s ease-in-out infinite alternate;
     }
 
-    /* Overlay */
+    /* Glow morado */
 
-    .overlay{
-
-      position:absolute;
-      inset:0;
-
-      background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.30),
-        rgba(0,0,0,0.78)
-      );
-    }
-
-    /* Glow */
-
-    .glow{
+    .purple-glow{
 
       position:absolute;
 
-      width:500px;
-      height:500px;
+      width:700px;
+      height:700px;
+
+      background:radial-gradient(circle,
+      rgba(119,0,255,0.22),
+      transparent 70%);
 
       border-radius:50%;
 
-      background:radial-gradient(
-        circle,
-        rgba(132,0,255,0.22),
-        transparent 70%
-      );
+      filter:blur(60px);
 
-      filter:blur(30px);
+      top:-180px;
+      left:-180px;
 
-      animation:pulse 8s infinite ease-in-out;
+      animation:pulse 9s ease-in-out infinite;
     }
 
-    .glow.one{
-      top:-150px;
-      left:-150px;
-    }
-
-    .glow.two{
-      bottom:-150px;
-      right:-150px;
-
+    .purple-glow.two{
+      top:auto;
+      left:auto;
+      bottom:-220px;
+      right:-220px;
       animation-delay:4s;
     }
 
@@ -106,176 +89,199 @@
     .card{
 
       position:relative;
-      z-index:2;
+      z-index:5;
 
-      width:90%;
-      max-width:700px;
+      width:min(92%,760px);
 
-      padding:65px 55px;
+      padding:70px 55px;
 
-      border-radius:28px;
+      border-radius:30px;
 
-      background:rgba(0,0,0,0.22);
+      /* SUPER TRANSPARENTE */
+      background:rgba(10, 5, 20, 0.06);
 
-      backdrop-filter:blur(5px);
+      /* vidrio suave */
+      backdrop-filter:blur(4px);
+      -webkit-backdrop-filter:blur(4px);
 
-      border:1px solid rgba(255,255,255,0.06);
-
-      text-align:center;
+      border:1.5px solid rgba(180,120,255,0.22);
 
       box-shadow:
-      0 0 40px rgba(132,0,255,0.08);
+      0 0 25px rgba(140,60,255,0.10),
+      0 0 60px rgba(111,0,255,0.05),
+      inset 0 0 12px rgba(255,255,255,0.02);
 
-      animation:cardFade 3s ease;
-    }
-
-    /* Nombre */
-
-    h1{
-
-      font-size:4rem;
-
-      font-weight:600;
-
-      letter-spacing:10px;
-
-      margin-bottom:8px;
+      text-align:center;
 
       animation:fadeUp 2s ease;
     }
 
-    .sub{
+    h1{
 
-      opacity:0.55;
+      font-size:clamp(3rem,8vw,5.8rem);
 
-      letter-spacing:5px;
+      letter-spacing:14px;
 
-      font-size:0.85rem;
+      font-weight:600;
 
-      margin-bottom:60px;
+      margin-bottom:10px;
 
-      animation:fadeUp 2.5s ease;
+      color:#e0b7ff;
+
+      text-shadow:
+      0 0 12px rgba(167,91,255,0.65),
+      0 0 40px rgba(111,0,255,0.25);
     }
 
-    /* Mensaje */
+    .subtitle{
+
+      color:#f0ddff;
+
+      opacity:0.9;
+
+      letter-spacing:7px;
+
+      font-size:0.9rem;
+
+      margin-bottom:26px;
+    }
 
     .message{
 
-      font-size:1.05rem;
+      max-width:560px;
+
+      margin:auto;
+
+      font-size:1.08rem;
 
       line-height:2.1;
 
-      color:rgba(255,255,255,0.90);
+      color:rgba(255,255,255,0.96);
 
       font-weight:300;
 
-      animation:fadeUp 3s ease;
+      margin-top:45px;
     }
 
-    /* Frase */
+    .divider{
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+
+      margin-bottom:10px;
+    }
+
+    .line{
+
+      width:110px;
+      height:1px;
+
+      background:linear-gradient(to right,
+      transparent,
+      rgba(210,160,255,0.8),
+      transparent);
+    }
+
+    .symbol{
+
+      color:#d79cff;
+
+      font-size:1.4rem;
+
+      text-shadow:0 0 12px rgba(162,82,255,0.9);
+    }
 
     .quote{
 
-      margin-top:60px;
+      margin-top:65px;
+
+      font-size:1rem;
+
+      opacity:0.82;
 
       font-style:italic;
-
-      opacity:0.72;
-
-      font-size:0.92rem;
-
-      animation:fadeUp 3.5s ease;
     }
 
     .quote-author{
 
-      margin-top:12px;
+      margin-top:14px;
 
-      opacity:0.42;
+      font-size:0.8rem;
 
-      font-size:0.78rem;
+      letter-spacing:4px;
 
-      letter-spacing:3px;
-
-      animation:fadeUp 4s ease;
+      opacity:0.58;
     }
 
-    /* Texto música */
+    /* musica */
+
+    .music-wrapper{
+
+      position:absolute;
+
+      left:50%;
+      bottom:45px;
+
+      transform:translateX(-50%);
+
+      z-index:10;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:16px;
+    }
 
     .music-text{
 
-      position:absolute;
+      opacity:0.72;
 
-      bottom:105px;
+      font-size:0.75rem;
 
-      left:50%;
-
-      transform:translateX(-50%);
-
-      z-index:10;
-
-      opacity:0.55;
-
-      font-size:0.78rem;
-
-      letter-spacing:3px;
-
-      transition:0.6s ease;
-
-      animation:fadeUp 4.5s ease;
+      letter-spacing:4px;
     }
-
-    /* BOTON MUSICA */
 
     #musicBtn{
 
-      position:absolute;
+      border:none;
 
-      bottom:40px;
-
-      left:50%;
-
-      transform:translateX(-50%);
-
-      z-index:10;
-
-      padding:14px 28px;
-
-      border:1px solid rgba(255,255,255,0.18);
+      padding:14px 34px;
 
       border-radius:999px;
 
-      background:rgba(0,0,0,0.35);
+      background:rgba(0,0,0,0.12);
 
-      color:white;
-
-      backdrop-filter:blur(8px);
+      color:#efd8ff;
 
       font-size:0.82rem;
 
-      letter-spacing:3px;
+      letter-spacing:4px;
 
       cursor:pointer;
 
       transition:0.35s ease;
 
-      opacity:0.92;
+      border:1.3px solid rgba(200,140,255,0.30);
+
+      backdrop-filter:blur(8px);
 
       box-shadow:
-      0 0 20px rgba(132,0,255,0.18);
+      0 0 20px rgba(111,0,255,0.10);
     }
 
     #musicBtn:hover{
 
-      transform:translateX(-50%) scale(1.05);
+      transform:scale(1.06);
 
       background:rgba(255,255,255,0.10);
 
       box-shadow:
-      0 0 30px rgba(132,0,255,0.35);
+      0 0 35px rgba(119,0,255,0.30);
     }
 
-    /* :V oculto */
+    /* :V */
 
     #face{
 
@@ -285,21 +291,18 @@
 
       font-size:1.8rem;
 
-      font-weight:600;
-
       opacity:0;
 
-      color:rgba(255,255,255,0.78);
+      color:white;
 
-      text-shadow:
-      0 0 12px rgba(132,0,255,0.45);
+      text-shadow:0 0 15px rgba(119,0,255,0.6);
 
       pointer-events:none;
     }
 
     /* Animaciones */
 
-    @keyframes cardFade{
+    @keyframes fadeUp{
 
       from{
         opacity:0;
@@ -312,16 +315,14 @@
       }
     }
 
-    @keyframes fadeUp{
+    @keyframes zoom{
 
       from{
-        opacity:0;
-        transform:translateY(25px);
+        transform:scale(1.03);
       }
 
       to{
-        opacity:1;
-        transform:translateY(0);
+        transform:scale(1.08);
       }
     }
 
@@ -332,83 +333,63 @@
       }
 
       50%{
-        transform:scale(1.18);
-      }
-    }
-
-    @keyframes zoom{
-
-      from{
         transform:scale(1.15);
       }
-
-      to{
-        transform:scale(1.22);
-      }
     }
 
-    /* Responsive */
+    /* responsive */
 
     @media(max-width:700px){
 
-      h1{
-        font-size:2.2rem;
-        letter-spacing:6px;
+      .card{
+        padding:50px 28px;
+        width:90%;
       }
 
-      .card{
-
-        width:88%;
-
-        padding:38px 24px;
-
-        border-radius:24px;
+      .subtitle{
+        margin-bottom:50px;
       }
 
       .message{
-        font-size:0.95rem;
+        font-size:0.96rem;
+        line-height:1.9;
       }
 
-      .music-text{
-        font-size:0.70rem;
+      .quote{
+        margin-top:50px;
+      }
+
+      .music-wrapper{
+        bottom:28px;
       }
 
       #musicBtn{
-
-        bottom:28px;
-
-        padding:12px 22px;
-
+        padding:12px 26px;
         font-size:0.72rem;
       }
     }
 
   </style>
 </head>
-
 <body>
-
-  <!-- Fondo -->
 
   <div class="background"></div>
 
-  <!-- Overlay -->
-
-  <div class="overlay"></div>
-
-  <!-- Glow -->
-
-  <div class="glow one"></div>
-  <div class="glow two"></div>
-
-  <!-- Card -->
+  <div class="purple-glow"></div>
+  <div class="purple-glow two"></div>
 
   <div class="card">
 
     <h1>DAIANA</h1>
 
-    <div class="sub">
+    <div class="subtitle">
       happy birthday.
+    </div>
+
+    <div class="divider">
+      <div class="line"></div>
+      <div class="symbol">✦</div>
+      <div class="line"></div>
     </div>
 
     <div class="message">
@@ -425,41 +406,32 @@
 
   </div>
 
-  <!-- :V -->
+  <div id="face">:V</div>
 
-  <div id="face">
-    :V
+  <div class="music-wrapper">
+
+    <div class="music-text">
+      just listen for a while.
+    </div>
+
+    <button id="musicBtn">
+      ♬ play music
+    </button>
+
   </div>
-
-  <!-- Texto música -->
-
-  <div class="music-text">
-    just listen for a while.
-  </div>
-
-  <!-- Música -->
 
   <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Botón -->
-
-  <button id="musicBtn">
-    play music
-  </button>
-
-  <!-- Script -->
-
   <script>
 
-    const music = document.getElementById("bgMusic");
-    const btn = document.getElementById("musicBtn");
-    const musicText = document.querySelector(".music-text");
+    const music = document.getElementById('bgMusic');
+    const btn = document.getElementById('musicBtn');
 
     let playing = false;
 
-    btn.addEventListener("click", () => {
+    btn.addEventListener('click',()=>{
 
       if(!playing){
 
@@ -469,34 +441,29 @@
 
         let volume = 0;
 
-        const fade = setInterval(() => {
+        const fade = setInterval(()=>{
 
           if(volume < 0.22){
 
             volume += 0.01;
-
             music.volume = volume;
 
-          } else {
+          }else{
 
             clearInterval(fade);
           }
 
-        }, 200);
+        },200);
 
-        musicText.style.opacity = "0";
-
-        btn.innerText = "pause music";
+        btn.innerText = 'pause music';
 
         playing = true;
 
-      } else {
+      }else{
 
         music.pause();
 
-        musicText.style.opacity = "0.55";
-
-        btn.innerText = "play music";
+        btn.innerText = '♬ play music';
 
         playing = false;
       }
@@ -505,29 +472,28 @@
 
     /* :V random */
 
-    const face = document.getElementById("face");
+    const face = document.getElementById('face');
 
     function showFace(){
 
-      face.style.transition = "0.3s ease";
+      face.style.transition = '0.3s ease';
 
-      const topPos = Math.random() * 70 + 5;
-      const leftPos = Math.random() * 70 + 5;
+      const topPos = Math.random() * 75 + 5;
+      const leftPos = Math.random() * 75 + 5;
 
-      face.style.top = topPos + "%";
-      face.style.left = leftPos + "%";
+      face.style.top = topPos + '%';
+      face.style.left = leftPos + '%';
 
-      face.style.opacity = "0.85";
+      face.style.opacity = '0.85';
 
-      setTimeout(() => {
+      setTimeout(()=>{
 
-        face.style.opacity = "0";
+        face.style.opacity = '0';
 
-      }, 900);
-
+      },900);
     }
 
-    setInterval(() => {
+    setInterval(()=>{
 
       const randomChance = Math.random();
 
@@ -536,7 +502,7 @@
         showFace();
       }
 
-    }, 5000);
+    },5000);
 
   </script>
 

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>happy birthday, daiana.</title>
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:black;
+      color:white;
+      position:relative;
+    }
+
+    /* Fondo */
+
+    .background{
+
+      position:absolute;
+      inset:0;
+
+      background:url('sasuke.jpg') center center/cover no-repeat;
+
+      filter:brightness(0.33);
+
+      transform:scale(1.08);
+
+      animation:zoom 20s infinite alternate ease-in-out;
+    }
+
+    /* Overlay */
+
+    .overlay{
+
+      position:absolute;
+      inset:0;
+
+      background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.30),
+        rgba(0,0,0,0.78)
+      );
+    }
+
+    /* Glow */
+
+    .glow{
+
+      position:absolute;
+
+      width:500px;
+      height:500px;
+
+      border-radius:50%;
+
+      background:radial-gradient(
+        circle,
+        rgba(132,0,255,0.22),
+        transparent 70%
+      );
+
+      filter:blur(30px);
+
+      animation:pulse 8s infinite ease-in-out;
+    }
+
+    .glow.one{
+      top:-150px;
+      left:-150px;
+    }
+
+    .glow.two{
+      bottom:-150px;
+      right:-150px;
+
+      animation-delay:4s;
+    }
+
+    /* Card */
+
+    .card{
+
+      position:relative;
+      z-index:2;
+
+      width:90%;
+      max-width:700px;
+
+      padding:65px 55px;
+
+      border-radius:28px;
+
+      background:rgba(0,0,0,0.22);
+
+      backdrop-filter:blur(5px);
+
+      border:1px solid rgba(255,255,255,0.06);
+
+      text-align:center;
+
+      box-shadow:
+      0 0 40px rgba(132,0,255,0.08);
+
+      animation:cardFade 3s ease;
+    }
+
+    /* Nombre */
+
+    h1{
+
+      font-size:4rem;
+
+      font-weight:600;
+
+      letter-spacing:10px;
+
+      margin-bottom:8px;
+
+      animation:fadeUp 2s ease;
+    }
+
+    .sub{
+
+      opacity:0.55;
+
+      letter-spacing:5px;
+
+      font-size:0.85rem;
+
+      margin-bottom:60px;
+
+      animation:fadeUp 2.5s ease;
+    }
+
+    /* Mensaje */
+
+    .message{
+
+      font-size:1.05rem;
+
+      line-height:2.1;
+
+      color:rgba(255,255,255,0.90);
+
+      font-weight:300;
+
+      animation:fadeUp 3s ease;
+    }
+
+    /* Frase */
+
+    .quote{
+
+      margin-top:60px;
+
+      font-style:italic;
+
+      opacity:0.72;
+
+      font-size:0.92rem;
+
+      animation:fadeUp 3.5s ease;
+    }
+
+    .quote-author{
+
+      margin-top:12px;
+
+      opacity:0.42;
+
+      font-size:0.78rem;
+
+      letter-spacing:3px;
+
+      animation:fadeUp 4s ease;
+    }
+
+    /* Texto música */
+
+    .music-text{
+
+      position:absolute;
+
+      bottom:105px;
+
+      left:50%;
+
+      transform:translateX(-50%);
+
+      z-index:10;
+
+      opacity:0.55;
+
+      font-size:0.78rem;
+
+      letter-spacing:3px;
+
+      transition:0.6s ease;
+
+      animation:fadeUp 4.5s ease;
+    }
+
+    /* BOTON MUSICA */
+
+    #musicBtn{
+
+      position:absolute;
+
+      bottom:40px;
+
+      left:50%;
+
+      transform:translateX(-50%);
+
+      z-index:10;
+
+      padding:14px 28px;
+
+      border:1px solid rgba(255,255,255,0.18);
+
+      border-radius:999px;
+
+      background:rgba(0,0,0,0.35);
+
+      color:white;
+
+      backdrop-filter:blur(8px);
+
+      font-size:0.82rem;
+
+      letter-spacing:3px;
+
+      cursor:pointer;
+
+      transition:0.35s ease;
+
+      opacity:0.92;
+
+      box-shadow:
+      0 0 20px rgba(132,0,255,0.18);
+    }
+
+    #musicBtn:hover{
+
+      transform:translateX(-50%) scale(1.05);
+
+      background:rgba(255,255,255,0.10);
+
+      box-shadow:
+      0 0 30px rgba(132,0,255,0.35);
+    }
+
+    /* :V oculto */
+
+    #face{
+
+      position:absolute;
+
+      top:12%;
+
+      right:8%;
+
+      z-index:20;
+
+      font-size:1.8rem;
+
+      font-weight:600;
+
+      opacity:0;
+
+      color:rgba(255,255,255,0.78);
+
+      text-shadow:
+      0 0 12px rgba(132,0,255,0.45);
+
+      pointer-events:none;
+    }
+
+    /* Animaciones */
+
+    @keyframes cardFade{
+
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes fadeUp{
+
+      from{
+        opacity:0;
+        transform:translateY(25px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes pulse{
+
+      0%,100%{
+        transform:scale(1);
+      }
+
+      50%{
+        transform:scale(1.18);
+      }
+    }
+
+    @keyframes zoom{
+
+      from{
+        transform:scale(1.08);
+      }
+
+      to{
+        transform:scale(1.14);
+      }
+    }
+
+    /* Responsive */
+
+    @media(max-width:700px){
+
+      h1{
+        font-size:2.8rem;
+        letter-spacing:6px;
+      }
+
+      .card{
+        padding:45px 28px;
+      }
+
+      .message{
+        font-size:0.95rem;
+      }
+
+      .music-text{
+        font-size:0.70rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Fondo -->
+
+  <div class="background"></div>
+
+  <!-- Overlay -->
+
+  <div class="overlay"></div>
+
+  <!-- Glow -->
+
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <!-- Card -->
+
+  <div class="card">
+
+    <h1>DAIANA</h1>
+
+    <div class="sub">
+      happy birthday.
+    </div>
+
+    <div class="message">
+      algún día este momento también será un recuerdo.
+    </div>
+
+    <div class="quote">
+      “Another year survived.”
+    </div>
+
+    <div class="quote-author">
+      — Uchiha certified 🗿
+    </div>
+
+  </div>
+
+  <!-- :V -->
+
+  <div id="face">
+    :V
+  </div>
+
+  <!-- Texto música -->
+
+  <div class="music-text">
+    just listen for a while.
+  </div>
+
+  <!-- Música -->
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Botón -->
+
+  <button id="musicBtn">
+    play music
+  </button>
+
+  <!-- Script -->
+
+  <script>
+
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+    const musicText = document.querySelector(".music-text");
+
+    let playing = false;
+
+    btn.addEventListener("click", () => {
+
+      if(!playing){
+
+        music.volume = 0;
+
+        music.play();
+
+        let volume = 0;
+
+        const fade = setInterval(() => {
+
+          if(volume < 0.22){
+
+            volume += 0.01;
+
+            music.volume = volume;
+
+          } else {
+
+            clearInterval(fade);
+          }
+
+        }, 200);
+
+        musicText.style.opacity = "0";
+
+        btn.innerText = "pause music";
+
+        playing = true;
+
+      } else {
+
+        music.pause();
+
+        musicText.style.opacity = "0.55";
+
+        btn.innerText = "play music";
+
+        playing = false;
+      }
+
+    });
+
+    /* :V random */
+
+    const face = document.getElementById("face");
+
+    function showFace(){
+
+      face.style.transition = "0.3s ease";
+
+      const topPos = Math.random() * 70 + 5;
+      const leftPos = Math.random() * 70 + 5;
+
+      face.style.top = topPos + "%";
+      face.style.left = leftPos + "%";
+
+      face.style.opacity = "0.85";
+
+      setTimeout(() => {
+
+        face.style.opacity = "0";
+
+      }, 900);
+
+    }
+
+    setInterval(() => {
+
+      const randomChance = Math.random();
+
+      if(randomChance > 0.55){
+
+        showFace();
+      }
+
+    }, 5000);
+
+  </script>
+
+</body>
+</html>

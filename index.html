@@ -2,646 +2,522 @@
 <html lang="es">
 <head>
 
-  <meta charset="UTF-8" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1.0" />
+<title>Daiana</title>
 
-  <meta name="theme-color"
-  content="#090014">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <title>Daiana</title>
+<style>
 
-  <link
-  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-  rel="stylesheet">
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-  <style>
+body{
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
+  min-height:100vh;
 
-    body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
 
-      min-height:100svh;
-      width:100%;
+  overflow:hidden;
 
-      overflow-x:hidden;
-      overflow-y:auto;
+  background:black;
+  color:white;
 
-      display:flex;
-      justify-content:center;
-      align-items:center;
+  position:relative;
+}
 
-      padding:30px 16px 120px;
+/* FONDO */
 
-      background:black;
-      color:white;
+.background{
 
-      position:relative;
-    }
+  position:fixed;
+  inset:0;
 
-    /* Fondo */
+  background:
+  linear-gradient(
+  rgba(0,0,0,0.20),
+  rgba(0,0,0,0.45)),
+  url('sasuke.png');
 
-    .background{
+  background-size:cover;
 
-      position:fixed;
-      inset:0;
+  /* PC */
+  background-position:center center;
 
-      background:
-      linear-gradient(
-      rgba(0,0,0,0.18),
-      rgba(0,0,0,0.38)),
-      url('sasuke.png') center center/cover no-repeat;
+  filter:brightness(0.92);
 
-      filter:brightness(0.9);
+  z-index:-3;
+}
 
-      transform:scale(1.02);
+/* Glow morado */
 
-      z-index:-2;
+.overlay{
 
-      animation:zoom 18s ease-in-out infinite alternate;
-    }
+  position:fixed;
+  inset:0;
 
-    /* Glow morado */
+  background:
+  radial-gradient(circle at top left,
+  rgba(119,0,255,0.22),
+  transparent 40%),
 
-    .purple-glow{
+  radial-gradient(circle at bottom right,
+  rgba(140,0,255,0.18),
+  transparent 35%);
 
-      position:fixed;
+  z-index:-2;
+}
 
-      width:700px;
-      height:700px;
+/* CARD */
 
-      background:
-      radial-gradient(circle,
-      rgba(119,0,255,0.18),
-      transparent 70%);
+.card{
 
-      border-radius:50%;
+  position:relative;
 
-      filter:blur(60px);
+  width:min(92%,700px);
 
-      top:-180px;
-      left:-180px;
+  padding:65px 45px;
 
-      animation:pulse 9s ease-in-out infinite;
+  border-radius:34px;
 
-      z-index:-1;
-    }
+  background:rgba(255,255,255,0.07);
 
-    .purple-glow.two{
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
 
-      top:auto;
-      left:auto;
+  border:1px solid rgba(255,255,255,0.14);
 
-      bottom:-220px;
-      right:-220px;
+  box-shadow:
+  0 10px 35px rgba(0,0,0,0.28),
+  0 0 25px rgba(162,82,255,0.10),
+  inset 0 1px 0 rgba(255,255,255,0.10);
 
-      animation-delay:4s;
-    }
+  text-align:center;
 
-    /* CARD CRISTAL */
+  overflow:hidden;
+}
 
-    .card{
+.card::before{
 
-      position:relative;
-      z-index:5;
+  content:'';
 
-      width:min(100%,700px);
+  position:absolute;
+  inset:0;
 
-      padding:65px 45px;
+  border-radius:inherit;
 
-      border-radius:34px;
+  background:
+  linear-gradient(
+  135deg,
+  rgba(255,255,255,0.10),
+  rgba(255,255,255,0.02),
+  transparent 60%);
 
-      /* cristal limpio */
-      background:rgba(255,255,255,0.07);
+  pointer-events:none;
+}
 
-      /* blur suave */
-      backdrop-filter:blur(5px);
-      -webkit-backdrop-filter:blur(5px);
+/* TITULO */
 
-      /* borde elegante */
-      border:1px solid rgba(255,255,255,0.14);
+h1{
 
-      /* profundidad */
-      box-shadow:
-      0 10px 35px rgba(0,0,0,0.28),
-      0 0 25px rgba(162,82,255,0.10),
-      inset 0 1px 0 rgba(255,255,255,0.10);
+  position:relative;
+  z-index:2;
 
-      text-align:center;
+  font-size:clamp(3rem,8vw,5.8rem);
 
-      animation:fadeUp 2s ease;
+  letter-spacing:14px;
 
-      overflow:hidden;
-    }
+  font-weight:600;
 
-    /* reflejo cristal */
+  margin-bottom:10px;
 
-    .card::before{
+  color:#eccfff;
 
-      content:'';
+  text-shadow:
+  0 0 12px rgba(167,91,255,0.65),
+  0 0 40px rgba(111,0,255,0.28);
+}
 
-      position:absolute;
+.subtitle{
 
-      inset:0;
+  position:relative;
+  z-index:2;
 
-      border-radius:inherit;
+  color:#f5e8ff;
 
-      background:
-      linear-gradient(
-      135deg,
-      rgba(255,255,255,0.10),
-      rgba(255,255,255,0.02),
-      transparent 60%);
+  opacity:0.95;
 
-      pointer-events:none;
-    }
+  letter-spacing:7px;
 
-    h1{
+  font-size:0.9rem;
 
-      position:relative;
-      z-index:2;
+  margin-bottom:26px;
+}
 
-      font-size:clamp(3rem,8vw,5.8rem);
+.divider{
 
-      letter-spacing:14px;
+  position:relative;
+  z-index:2;
 
-      font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-      margin-bottom:10px;
+  gap:18px;
 
-      color:#eccfff;
+  margin-bottom:10px;
+}
 
-      text-shadow:
-      0 0 12px rgba(167,91,255,0.65),
-      0 0 40px rgba(111,0,255,0.28);
-    }
+.line{
 
-    .subtitle{
+  width:110px;
+  height:1px;
 
-      position:relative;
-      z-index:2;
+  background:
+  linear-gradient(
+  to right,
+  transparent,
+  rgba(210,160,255,0.8),
+  transparent);
+}
 
-      color:#f5e8ff;
+.symbol{
 
-      opacity:0.95;
+  color:#d89fff;
 
-      letter-spacing:7px;
+  font-size:1.4rem;
 
-      font-size:0.9rem;
+  text-shadow:
+  0 0 12px rgba(162,82,255,0.9);
+}
 
-      margin-bottom:26px;
-    }
+.message{
 
-    .divider{
+  position:relative;
+  z-index:2;
 
-      position:relative;
-      z-index:2;
+  max-width:560px;
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  margin:auto;
 
-      gap:18px;
+  font-size:1.08rem;
 
-      margin-bottom:10px;
-    }
+  line-height:2.1;
 
-    .line{
+  color:rgba(255,255,255,0.96);
 
-      width:110px;
-      height:1px;
+  font-weight:300;
 
-      background:
-      linear-gradient(
-      to right,
-      transparent,
-      rgba(210,160,255,0.8),
-      transparent);
-    }
+  margin-top:45px;
+}
 
-    .symbol{
+.quote{
 
-      color:#d89fff;
+  position:relative;
+  z-index:2;
 
-      font-size:1.4rem;
+  margin-top:65px;
 
-      text-shadow:
-      0 0 12px rgba(162,82,255,0.9);
-    }
+  font-size:1rem;
 
-    .message{
+  opacity:0.88;
 
-      position:relative;
-      z-index:2;
+  font-style:italic;
+}
 
-      max-width:560px;
+.quote-author{
 
-      margin:auto;
+  position:relative;
+  z-index:2;
 
-      font-size:1.08rem;
+  margin-top:14px;
 
-      line-height:2.1;
+  font-size:0.8rem;
 
-      color:rgba(255,255,255,0.96);
+  letter-spacing:4px;
 
-      font-weight:300;
+  opacity:0.62;
+}
 
-      margin-top:45px;
-    }
+/* MUSICA */
 
-    .quote{
+.music-wrapper{
 
-      position:relative;
-      z-index:2;
+  position:absolute;
 
-      margin-top:65px;
+  left:50%;
+  bottom:45px;
 
-      font-size:1rem;
+  transform:translateX(-50%);
 
-      opacity:0.88;
+  z-index:10;
 
-      font-style:italic;
-    }
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 
-    .quote-author{
+  gap:16px;
+}
 
-      position:relative;
-      z-index:2;
+.music-text{
 
-      margin-top:14px;
+  opacity:0.74;
 
-      font-size:0.8rem;
+  font-size:0.75rem;
 
-      letter-spacing:4px;
+  letter-spacing:4px;
+}
 
-      opacity:0.62;
-    }
+#musicBtn{
 
-    /* Música */
+  border:none;
 
-    .music-wrapper{
+  padding:14px 34px;
 
-      position:absolute;
+  border-radius:999px;
 
-      left:50%;
-      bottom:45px;
+  background:rgba(255,255,255,0.06);
 
-      transform:translateX(-50%);
+  color:#f0dcff;
 
-      z-index:10;
+  font-size:0.82rem;
 
-      display:flex;
-      flex-direction:column;
-      align-items:center;
+  letter-spacing:4px;
 
-      gap:16px;
-    }
+  cursor:pointer;
 
-    .music-text{
+  transition:0.35s ease;
 
-      opacity:0.74;
+  border:1px solid rgba(255,255,255,0.10);
 
-      font-size:0.75rem;
+  backdrop-filter:blur(8px);
 
-      letter-spacing:4px;
-    }
+  box-shadow:
+  0 0 20px rgba(111,0,255,0.10);
+}
 
-    #musicBtn{
+#musicBtn:hover{
 
-      border:none;
+  transform:scale(1.06);
 
-      padding:14px 34px;
+  background:rgba(255,255,255,0.10);
 
-      border-radius:999px;
+  box-shadow:
+  0 0 35px rgba(119,0,255,0.30);
+}
 
-      background:rgba(255,255,255,0.06);
+/* RESPONSIVE */
 
-      color:#f0dcff;
+@media(max-width:900px){
 
-      font-size:0.82rem;
+  body{
 
-      letter-spacing:4px;
+    overflow-y:auto;
 
-      cursor:pointer;
+    padding:24px 14px 140px;
 
-      transition:0.35s ease;
+    align-items:flex-start;
+  }
 
-      border:1px solid rgba(255,255,255,0.10);
+  .background{
 
-      backdrop-filter:blur(8px);
+    /* mueve el personaje */
+    background-position:75% center;
 
-      box-shadow:
-      0 0 20px rgba(111,0,255,0.10);
-    }
+    /* más visible */
+    filter:brightness(1);
+  }
 
-    #musicBtn:hover{
+  .card{
 
-      transform:scale(1.06);
+    width:100%;
 
-      background:rgba(255,255,255,0.10);
+    padding:45px 22px;
 
-      box-shadow:
-      0 0 35px rgba(119,0,255,0.30);
-    }
+    border-radius:28px;
+  }
 
-    /* :V */
+  h1{
 
-    #face{
+    font-size:3.4rem;
 
-      position:absolute;
+    letter-spacing:8px;
+  }
 
-      z-index:20;
+  .subtitle{
 
-      font-size:1.8rem;
+    font-size:0.82rem;
 
-      opacity:0;
+    letter-spacing:5px;
+  }
 
-      color:white;
+  .message{
 
-      text-shadow:
-      0 0 15px rgba(119,0,255,0.6);
+    font-size:1rem;
 
-      pointer-events:none;
-    }
+    line-height:1.8;
+  }
 
-    /* Animaciones */
+  .line{
+    width:70px;
+  }
 
-    @keyframes fadeUp{
+  .quote{
 
-      from{
-        opacity:0;
-        transform:translateY(20px);
-      }
+    font-size:1rem;
 
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
+    margin-top:50px;
+  }
 
-    @keyframes zoom{
+  .quote-author{
 
-      from{
-        transform:scale(1.02);
-      }
+    font-size:0.75rem;
 
-      to{
-        transform:scale(1.07);
-      }
-    }
+    letter-spacing:3px;
+  }
 
-    @keyframes pulse{
+  .music-wrapper{
 
-      0%,100%{
-        transform:scale(1);
-      }
+    position:relative;
 
-      50%{
-        transform:scale(1.15);
-      }
-    }
+    left:auto;
+    bottom:auto;
 
-    /* Responsive */
+    transform:none;
 
-    @media(max-width:700px){
+    margin-top:30px;
+  }
 
-      body{
+  #musicBtn{
 
-        padding:20px 14px 140px;
+    width:100%;
 
-        align-items:flex-start;
-      }
+    max-width:260px;
+  }
 
-      .card{
+}
 
-        width:100%;
-
-        padding:
-        45px
-        22px;
-
-        border-radius:28px;
-      }
-
-      h1{
-
-        font-size:3.1rem;
-
-        letter-spacing:8px;
-      }
-
-      .subtitle{
-
-        font-size:0.82rem;
-
-        letter-spacing:5px;
-      }
-
-      .message{
-
-        font-size:1rem;
-
-        line-height:1.8;
-      }
-
-      .line{
-        width:70px;
-      }
-
-      .quote{
-
-        font-size:1rem;
-
-        margin-top:50px;
-      }
-
-      .music-wrapper{
-
-        position:relative;
-
-        margin-top:25px;
-
-        bottom:auto;
-        left:auto;
-
-        transform:none;
-      }
-
-      #musicBtn{
-
-        width:100%;
-
-        max-width:260px;
-      }
-
-    }
-
-  </style>
+</style>
 
 </head>
 
 <body>
 
-  <div class="background"></div>
+<div class="background"></div>
 
-  <div class="purple-glow"></div>
-  <div class="purple-glow two"></div>
+<div class="overlay"></div>
 
-  <div class="card">
+<div class="card">
 
-    <h1>DAIANA</h1>
+  <h1>DAIANA</h1>
 
-    <div class="subtitle">
-      happy birthday.
-    </div>
+  <div class="subtitle">
+    happy birthday.
+  </div>
 
-    <div class="divider">
+  <div class="divider">
 
-      <div class="line"></div>
+    <div class="line"></div>
 
-      <div class="symbol">✦</div>
+    <div class="symbol">✦</div>
 
-      <div class="line"></div>
-
-    </div>
-
-    <div class="message">
-      algún día este momento también será un recuerdo.
-    </div>
-
-    <div class="quote">
-      “Another year survived.”
-    </div>
-
-    <div class="quote-author">
-      — Uchiha certified 🗿
-    </div>
+    <div class="line"></div>
 
   </div>
 
-  <div id="face">:V</div>
-
-  <div class="music-wrapper">
-
-    <div class="music-text">
-      just listen for a while.
-    </div>
-
-    <button id="musicBtn">
-      ♬ play music
-    </button>
-
+  <div class="message">
+    algún día este momento también será un recuerdo.
   </div>
 
-  <audio id="bgMusic" loop>
+  <div class="quote">
+    “Another year survived.”
+  </div>
 
-    <source
-    src="music.mp3"
-    type="audio/mpeg">
+  <div class="quote-author">
+    — Uchiha certified 🗿
+  </div>
 
-  </audio>
+</div>
 
-  <script>
+<div class="music-wrapper">
 
-    const music =
-    document.getElementById('bgMusic');
+  <div class="music-text">
+    just listen for a while.
+  </div>
 
-    const btn =
-    document.getElementById('musicBtn');
+  <button id="musicBtn">
+    ♬ play music
+  </button>
 
-    let playing = false;
+</div>
 
-    btn.addEventListener('click',()=>{
+<audio id="bgMusic" loop>
 
-      if(!playing){
+  <source
+  src="music.mp3"
+  type="audio/mpeg">
 
-        music.volume = 0;
+</audio>
 
-        music.play();
+<script>
 
-        let volume = 0;
+const music =
+document.getElementById('bgMusic');
 
-        const fade = setInterval(()=>{
+const btn =
+document.getElementById('musicBtn');
 
-          if(volume < 0.22){
+let playing = false;
 
-            volume += 0.01;
+btn.addEventListener('click',()=>{
 
-            music.volume = volume;
+  if(!playing){
 
-          }else{
+    music.volume = 0;
 
-            clearInterval(fade);
-          }
+    music.play();
 
-        },200);
+    let volume = 0;
 
-        btn.innerText = 'pause music';
+    const fade = setInterval(()=>{
 
-        playing = true;
+      if(volume < 0.22){
+
+        volume += 0.01;
+
+        music.volume = volume;
 
       }else{
 
-        music.pause();
-
-        btn.innerText = '♬ play music';
-
-        playing = false;
+        clearInterval(fade);
       }
 
-    });
+    },200);
 
-    /* :V random */
+    btn.innerText = 'pause music';
 
-    const face =
-    document.getElementById('face');
+    playing = true;
 
-    function showFace(){
+  }else{
 
-      face.style.transition =
-      '0.3s ease';
+    music.pause();
 
-      const topPos =
-      Math.random() * 75 + 5;
+    btn.innerText = '♬ play music';
 
-      const leftPos =
-      Math.random() * 75 + 5;
+    playing = false;
+  }
 
-      face.style.top =
-      topPos + '%';
+});
 
-      face.style.left =
-      leftPos + '%';
-
-      face.style.opacity =
-      '0.85';
-
-      setTimeout(()=>{
-
-        face.style.opacity = '0';
-
-      },900);
-    }
-
-    setInterval(()=>{
-
-      const randomChance =
-      Math.random();
-
-      if(randomChance > 0.55){
-
-        showFace();
-      }
-
-    },5000);
-
-  </script>
+</script>
 
 </body>
 </html>
